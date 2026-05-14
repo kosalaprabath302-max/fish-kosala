@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finest Fish Ceylon | Premium Aquatics</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="loader">
+        <div class="fish-loader"></div>
+        <p>Diving In...</p>
+    </div>
+
+    <nav class="navbar">
+        <div class="logo">Finest Fish <span>Ceylon</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#fish">Fish</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-icons">
+            <i class="fas fa-moon" id="theme-toggle"></i>
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </div>
+            <div class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="bubble-container"></div>
+        <div class="hero-content">
+            <h1 class="reveal">Finest Fish Ceylon</h1>
+            <p class="reveal">Premium Aquarium Fish & Accessories in Sri Lanka</p>
+            <div class="hero-btns reveal">
+                <a href="#fish" class="btn btn-primary">Shop Now</a>
+                <a href="#about" class="btn btn-secondary">Explore Fish</a>
+            </div>
+        </div>
+        <div class="scroll-down"></div>
+    </section>
+
+    <section id="fish" class="section">
+        <h2 class="section-title">Exotic Collection</h2>
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="premium">Premium</button>
+            <button class="filter-btn" data-filter="beginner">Beginner</button>
+        </div>
+        <div class="fish-grid">
+            <div class="fish-card" data-category="premium">
+                <div class="fish-img">
+                    <img src="https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?auto=format&fit=crop&w=500" alt="Betta">
+                </div>
+                <div class="fish-info">
+                    <h3>Halfmoon Betta</h3>
+                    <p class="price">LKR 1,500</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="fish-card" data-category="beginner">
+                <div class="fish-img">
+                    <img src="https://images.unsplash.com/photo-1534073737927-85f1df9605d2?auto=format&fit=crop&w=500" alt="Goldfish">
+                </div>
+                <div class="fish-info">
+                    <h3>Oranda Goldfish</h3>
+                    <p class="price">LKR 2,200</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            </div>
+    </section>
+
+    <a href="https://wa.me/yournumber" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Tank</h3>
+            <i class="fas fa-times close-cart"></i>
+        </div>
+        <div class="cart-items">
+            <p class="empty-msg">Your tank is empty!</p>
+        </div>
+        <div class="cart-footer">
+            <button class="btn btn-primary">Checkout</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>:root {
+    --deep-blue: #0a192f;
+    --aqua: #64ffda;
+    --white: #e6f1ff;
+    --glass: rgba(255, 255, 255, 0.1);
+    --transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: var(--deep-blue);
+    color: var(--white);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* --- Loader --- */
+#loader {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    background: var(--deep-blue);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.fish-loader {
+    width: 50px;
+    height: 50px;
+    border: 3px solid var(--aqua);
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* --- Navbar --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10, 25, 47, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid var(--glass);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.logo span { color: var(--aqua); }
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 400;
+    transition: var(--transition);
+}
+
+.nav-links a:hover { color: var(--aqua); }
+
+/* --- Hero Section --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.7)), 
+                url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1920');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+}
+
+.btn {
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    display: inline-block;
+    margin: 10px;
+}
+
+.btn-primary {
+    background: transparent;
+    border: 1px solid var(--aqua);
+    color: var(--aqua);
+}
+
+.btn-primary:hover {
+    background: rgba(100, 255, 218, 0.1);
+}
+
+/* --- Fish Cards --- */
+.section { padding: 5rem 10%; }
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.fish-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.fish-card {
+    background: var(--glass);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: var(--transition);
+}
+
+.fish-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.fish-img img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.fish-info { padding: 1.5rem; }
+.price { color: var(--aqua); font-weight: 700; margin: 10px 0; }
+
+/* --- Floating Elements --- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #25d366;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 100;
+}
+
+/* Bubbles Animation */
+.bubble {
+    position: absolute;
+    bottom: -10px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    animation: float 10s infinite linear;
+}
+
+@keyframes float {
+    to { transform: translateY(-100vh); opacity: 0; }
+}// 1. Loading Screen
+window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    setTimeout(() => {
+        loader.style.opacity = '0';
+        setTimeout(() => loader.style.display = 'none', 500);
+    }, 1500);
+});
+
+// 2. Bubble Generator
+function createBubbles() {
+    const container = document.querySelector('.bubble-container');
+    if (!container) return;
+
+    for (let i = 0; i < 20; i++) {
+        const bubble = document.createElement('div');
+        bubble.className = 'bubble';
+        const size = Math.random() * 20 + 10 + 'px';
+        bubble.style.width = size;
+        bubble.style.height = size;
+        bubble.style.left = Math.random() * 100 + '%';
+        bubble.style.animationDuration = Math.random() * 5 + 5 + 's';
+        bubble.style.animationDelay = Math.random() * 5 + 's';
+        container.appendChild(bubble);
+    }
+}
+createBubbles();
+
+// 3. Navbar Scroll Effect
+window.addEventListener('scroll', () => {
+    const nav = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        nav.style.padding = '1rem 5%';
+        nav.style.background = 'rgba(10, 25, 47, 0.95)';
+    } else {
+        nav.style.padding = '1.5rem 5%';
+        nav.style.background = 'rgba(10, 25, 47, 0.8)';
+    }
+});
+
+// 4. Simple Cart Logic
+let cartCount = 0;
+const cartCountElement = document.getElementById('cart-count');
+const addButtons = document.querySelectorAll('.add-to-cart');
+
+addButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        cartCount++;
+        cartCountElement.innerText = cartCount;
+        
+        // Notification
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.innerText = 'Added to your tank! 🐠';
+        document.body.appendChild(toast);
+        
+        setTimeout(() => toast.remove(), 3000);
+    });
+});
+
+// 5. Scroll Reveal Animation (Intersection Observer)
+const revealElements = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, { threshold: 0.1 });
+
+revealElements.forEach(el => observer.observe(el));
+
+// 6. Mobile Menu
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    hamburger.classList.toggle('active');
+});s
